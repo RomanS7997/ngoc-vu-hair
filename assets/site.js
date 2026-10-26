@@ -73,7 +73,10 @@
     var el = $("#open-status");
     var today = hoursOn(now.wd);
     if (el) {
-      if (today && now.min >= toMin(today[0]) && now.min < toMin(today[1])) {
+      if (today && today[0] === "00:00" && today[1] === "24:00") {
+        el.textContent = T.open_24;
+        el.className = "open-status is-open";
+      } else if (today && now.min >= toMin(today[0]) && now.min < toMin(today[1])) {
         el.textContent = fmt(T.open_until, { t: today[1] });
         el.className = "open-status is-open";
       } else {
@@ -101,6 +104,7 @@
     function slotsFor(iso) {
       var h = hoursOn(weekdayOf(iso));
       if (!h) return [];
+      if (h[0] === "00:00" && h[1] === "24:00") h = ["08:00", "23:00"]; // круглосуточно: запись на разумные часы
       var start = toMin(h[0]), end = toMin(h[1]) - 30, out = [];
       var floor = iso === todayIso ? now.min + lead : -1;
       for (var m = start; m <= end; m += D.slot) if (m >= floor) out.push(toHHMM(m));
