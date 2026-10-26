@@ -186,6 +186,11 @@
         .then(function (ok) { finish(); if (ok) showDone(p); else showError(p); });
     });
 
+    // «Записаться» на карточке услуги подставляет эту услугу в форму
+    $all("[data-service]").forEach(function (link) {
+      link.addEventListener("click", function () { serviceEl.value = link.dataset.service; });
+    });
+
     $("#book-again").addEventListener("click", function () {
       form.reset(); dateEl.value = firstDay; fillTimes(); done.hidden = true; form.hidden = false; t0 = Date.now();
     });
