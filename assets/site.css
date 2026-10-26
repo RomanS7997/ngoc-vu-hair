@@ -386,3 +386,7 @@ p{margin:0;text-wrap:pretty}
 .theme-mono .rv-quote .ic{color:rgba(26,26,27,.08)}
 .theme-mono .hb-num{font-weight:800}
 .theme-arch .about{background:var(--soft)}
+
+/* Кириллица Cormorant слишком своеобразная (л как Λ) — для русских страниц Spectral */
+html:lang(ru):not(.theme-mono):not(.theme-noir){--font-head:'Spectral',Georgia,'Times New Roman',serif}
+html:lang(ru):not(.theme-mono):not(.theme-noir) h1,html:lang(ru):not(.theme-mono):not(.theme-noir) h2{letter-spacing:-.02em}
