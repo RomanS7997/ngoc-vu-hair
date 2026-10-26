@@ -17,9 +17,9 @@ button{font:inherit;color:inherit}
 @media (min-width:768px){.wrap{padding-inline:32px}}
 
 h1,h2,h3,h4{margin:0;text-wrap:balance}
-h1,h2{font-family:var(--font-head);font-weight:500;letter-spacing:-.01em;line-height:1.1}
+h1,h2{font-family:var(--font-head);font-weight:var(--head-weight);letter-spacing:var(--head-tracking);line-height:1.1}
 h2{font-size:clamp(2rem,4.2vw,3rem)}
-h1 em,h2 em{font-style:italic;font-weight:400;color:var(--accent)}
+h1 em,h2 em{font-style:var(--em-style);font-weight:inherit;color:var(--accent)}
 p{margin:0;text-wrap:pretty}
 .eyebrow{font-family:var(--font-body);font-size:.72rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
 :lang(ko) .eyebrow,:lang(zh) .eyebrow{letter-spacing:.06em}
@@ -40,7 +40,7 @@ p{margin:0;text-wrap:pretty}
 
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;min-height:50px;padding:0 1.6rem;border-radius:6px;
   border:1.5px solid transparent;font-weight:600;font-size:.76rem;letter-spacing:.13em;text-transform:uppercase;line-height:1.1;
-  text-decoration:none;cursor:pointer;white-space:nowrap;transition:background .18s,color .18s,border-color .18s,transform .18s,box-shadow .18s}
+  text-decoration:none;cursor:pointer;white-space:nowrap;border-radius:var(--btn-radius);transition:background .18s,color .18s,border-color .18s,transform .18s,box-shadow .18s}
 :lang(ko) .btn,:lang(zh) .btn{letter-spacing:.04em;font-size:.86rem}
 .btn:active{transform:translateY(1px)}
 .btn .ic{width:1.15rem;height:1.15rem}
@@ -79,7 +79,7 @@ p{margin:0;text-wrap:pretty}
 .footer .logo-img{height:70px}
 .logo-main{font-family:var(--font-head);font-size:1.45rem;font-weight:500;letter-spacing:.04em;white-space:nowrap}
 .logo-sub{margin-top:5px;font-size:.58rem;font-weight:600;letter-spacing:.32em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
-.theme-rose .logo-main,.theme-sage .logo-main{font-family:var(--font-script);font-size:2.2rem;font-weight:400;letter-spacing:0;color:var(--accent)}
+.theme-rose .logo-main,.theme-sage .logo-main,.theme-arch .logo-main{font-family:var(--font-script);font-size:2.2rem;font-weight:400;letter-spacing:0;color:var(--accent)}
 .theme-sand .logo-main{text-transform:uppercase;letter-spacing:.12em;font-size:1.2rem}
 .nav-links{display:none;gap:30px;font-size:.72rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase}
 .nav-links a{text-decoration:none;opacity:.85}
@@ -118,7 +118,7 @@ p{margin:0;text-wrap:pretty}
 .hero-rating{display:inline-flex;align-items:center;gap:8px;margin-top:26px;font-size:.86rem;color:var(--muted);text-decoration:none}
 .hero-rating strong{color:var(--ink);font-size:1rem}
 .hero-frame{position:relative;overflow:hidden;aspect-ratio:4/4.3;border-radius:22px;box-shadow:0 40px 80px -40px rgba(0,0,0,.45)}
-.theme-rose .hero-frame,.theme-sage .hero-frame{border-radius:999px 999px 22px 22px}
+.theme-rose .hero-frame,.theme-sage .hero-frame,.theme-arch .hero-frame{border-radius:999px 999px 22px 22px}
 @media (min-width:960px){.hero-frame{aspect-ratio:4/4.9}}
 .hero-img{width:100%;height:100%;object-fit:cover}
 .hero-badge{position:absolute;left:-10px;bottom:34px;display:grid;place-items:center;align-content:center;gap:4px;width:118px;height:118px;
@@ -201,7 +201,7 @@ p{margin:0;text-wrap:pretty}
 @media (min-width:960px){.about-grid{grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:72px}}
 .about-media{overflow:hidden;border-radius:var(--radius);aspect-ratio:4/3.2;box-shadow:0 30px 60px -36px rgba(0,0,0,.45)}
 @media (min-width:960px){.about-media{aspect-ratio:4/4.4}}
-.theme-rose .about-media,.theme-sage .about-media{border-radius:var(--radius) 160px var(--radius) var(--radius)}
+.theme-rose .about-media,.theme-sage .about-media,.theme-arch .about-media{border-radius:var(--radius) 160px var(--radius) var(--radius)}
 .about-media img{width:100%;height:100%;object-fit:cover}
 .about-copy h2 em{display:block}
 .welcome-suffix{display:block;font-size:.62em;margin-top:6px}
@@ -365,3 +365,24 @@ p{margin:0;text-wrap:pretty}
   html{scroll-behavior:auto}
   *,*::before,*::after{transition:none!important;animation:none!important}
 }
+
+/* ---------- тема mono (вывеска Ngọc Vũ) ---------- */
+.theme-mono .script{display:none}
+.theme-mono .hero{background:var(--bg)}
+.theme-mono .hero-title{font-size:clamp(2.4rem,5.6vw,4.1rem);line-height:1.02}
+.theme-mono .hero-title em{color:var(--muted)}
+.theme-mono .btn-accent{box-shadow:none}
+.theme-mono .card,.theme-mono .rv-card,.theme-mono .book-card{box-shadow:none}
+.theme-mono .card:hover{box-shadow:0 18px 40px -30px rgba(0,0,0,.3)}
+.theme-mono .announce{background:var(--ink)}
+.theme-mono .cta-inner{background:var(--ink);box-shadow:none}
+.theme-mono .btn-light{color:var(--ink)}
+.theme-mono .about h2 em,.theme-mono .about-copy h2 em{color:var(--ink)}
+.theme-mono .eyebrow{color:var(--muted)}
+.theme-mono .trust-ic{background:var(--soft);color:var(--ink)}
+.theme-mono .card-ic{background:var(--ink)}
+.theme-mono .card-link{color:var(--ink)}
+.theme-mono .rv-avatar{background:var(--soft);color:var(--ink)}
+.theme-mono .rv-quote .ic{color:rgba(26,26,27,.08)}
+.theme-mono .hb-num{font-weight:800}
+.theme-arch .about{background:var(--soft)}
